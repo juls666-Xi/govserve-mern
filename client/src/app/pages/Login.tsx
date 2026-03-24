@@ -6,7 +6,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Alert, AlertDescription } from '../components/ui/alert';
-import { Building2, AlertCircle } from 'lucide-react';
+import { Building2, AlertCircle, X } from 'lucide-react';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -31,9 +31,21 @@ export function Login() {
     }
   };
 
+  const handleClose = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md relative">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-2 right-2 h-8 w-8"
+          onClick={handleClose}
+        >
+          <X className="h-4 w-4" />
+        </Button>
         <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-4">
             <div className="p-3 bg-blue-600 rounded-full">
